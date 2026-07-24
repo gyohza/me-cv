@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* https://coolors.co/5c9ead-fffffa-4a525a-24272b */
 
