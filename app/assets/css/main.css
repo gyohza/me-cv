@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* https://coolors.co/5c9ead-fffffa-4a525a-24272b */
+
+@theme {
+  /* suppress default palette */
+  --color-*: initial;
+
+  /* highlights */
+  --color-accent: light-dark(#5c9ead, #5c9ead);
+
+  /* backgrounds */
+  --color-surface: light-dark(#fffffa, #24272b);
+
+  /* text */
+  --color-standard: light-dark(#24272b, #fffffa);
+  --color-caption: light-dark(#4a525a, #4a525a);
+}
+
+html {
+  @apply bg-surface text-standard;
+}
