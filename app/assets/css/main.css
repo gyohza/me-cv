@@ -4,20 +4,43 @@
 /* https://coolors.co/5c9ead-fffffa-4a525a-24272b */
 
 @theme {
+  --font-display: "Genos", sans-serif;
+  --font-sans: "Fira Sans", sans-serif;
+
   /* suppress default palette */
   --color-*: initial;
-
   /* highlights */
-  --color-accent: light-dark(#5c9ead, #5c9ead);
-
+  --color-accent: var(--config-accent);
   /* backgrounds */
   --color-surface: light-dark(#fffffa, #24272b);
-
   /* text */
-  --color-standard: light-dark(#24272b, #fffffa);
-  --color-caption: light-dark(#4a525a, #4a525a);
+  --color-content: light-dark(#24272b, #fffffa);
+  --color-label: light-dark(#8a929a, #8a929a);
 }
 
 html {
-  @apply bg-surface text-standard;
+  @apply bg-surface text-content font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display;
+}
+
+a {
+  @apply underline text-label transition-all text-shadow-content/5
+    hover:text-accent hover:text-shadow-md;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0 !important;
+  }
+
+  html, body, * {
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
