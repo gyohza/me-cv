@@ -15,32 +15,50 @@
   --color-surface: light-dark(#fffffa, #24272b);
   /* text */
   --color-content: light-dark(#24272b, #fffffa);
-  --color-label: light-dark(#8a929a, #8a929a);
+  --color-label: light-dark(#5f6871, #9aa3ac);
 }
 
 html {
+  color-scheme: light dark;
   @apply bg-surface text-content font-sans;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-display;
+a {
+  @apply text-content underline decoration-accent/50 decoration-2
+    underline-offset-2 transition-colors text-shadow-content/5
+    hover:text-accent hover:text-shadow-md;
 }
 
-a {
-  @apply underline text-label transition-all text-shadow-content/5
-    hover:text-accent hover:text-shadow-md;
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent;
 }
 
 @media print {
   @page {
     size: A4;
-    margin: 0 !important;
+    margin: 12mm 14mm;
   }
 
-  html, body, * {
-    margin: 0 !important;
-    padding: 0 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+  :root {
+    color-scheme: light;
+  }
+
+  html, body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 10.5pt;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  h1, h2, h3, h4 {
+    break-after: avoid;
+  }
+
+  p, li {
+    orphans: 2;
+    widows: 2;
   }
 }
