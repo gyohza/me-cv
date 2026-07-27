@@ -20,8 +20,14 @@ const fetchConfig = async (): Promise<CvConfig> => {
 
 const config = await fetchConfig();
 
-const accentColor = config.ui?.accentColor ?? 'var(--color-content)';
-const accentColorDark = config.ui?.accentColorDark ?? 'var(--color-content)';
+const isHexColor = (value?: string): value is string =>
+  !!value && /^#[0-9a-f]{3,8}$/i.test(value);
+
+const resolveAccentColor = (value?: string) =>
+  isHexColor(value) ? value : 'var(--color-content)';
+
+const accentColor = resolveAccentColor(config.ui?.accentColor);
+const accentColorDark = resolveAccentColor(config.ui?.accentColorDark);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
