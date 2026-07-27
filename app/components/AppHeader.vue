@@ -19,7 +19,12 @@
         :key="link.url"
         class="flex items-center gap-2 text-sm odd:col-start-1 odd:text-left even:col-start-2 even:flex-row-reverse even:text-right even:justify-self-end"
       >
-        <Icon :name="link.icon" size="1.125rem" class="text-accent" />
+        <Icon
+          :name="link.icon"
+          size="1.125rem"
+          class="text-accent"
+          aria-hidden="true"
+        />
         <a
           :href="link.url"
           :aria-label="link.label"
