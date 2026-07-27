@@ -10,6 +10,7 @@
       :title="data.title"
       :links="data.links"
     />
+    <AppSummary :summary="data.summary" />
   </article>
 </template>
 
