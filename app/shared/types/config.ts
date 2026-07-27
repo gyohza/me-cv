@@ -1,5 +1,5 @@
 export interface CvLink {
-  icon: string;
+  icon?: string;
   label: string;
   value: string;
   url: string;
