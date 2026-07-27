@@ -2,6 +2,7 @@
   <section
     v-if="links.length"
     data-nosnippet
+    class="py-2"
   >
     <ul
       class="grid grid-cols-2 gap-x-4 gap-y-1.5"
