@@ -11,9 +11,7 @@
       </h3>
       <p class="text-md text-label flex items-center gap-1.5">
         <span>{{ entry.location }}</span>
-        <Icon
-          name="ph:dot-outline-fill"
-        />
+        <Icon name="ph:dot-outline-fill" class="text-accent" />
         <time>{{ entry.tenure }}</time>
       </p>
     </div>
@@ -23,7 +21,7 @@
       :key="role.name"
       class="flex flex-col gap-1"
     >
-      <h4 class="text-md font-semibold">
+      <h4 class="text-md font-semibold tracking-wider">
         {{ role.name }}
       </h4>
       <AppHighlights :highlights="role.highlights" />

@@ -6,12 +6,12 @@
     <li
       v-for="highlight in highlights"
       :key="highlight"
-      class="flex gap-2"
+      class="flex gap-1"
     >
       <Icon
-        name="ph:seal-check-fill"
-        size=".75rem"
-        class="inline-block text-accent shrink-0 mt-1"
+        name="ph:dot-outline-fill"
+        size="1.125rem"
+        class="inline-block text-accent shrink-0"
         aria-hidden
       />
       {{ highlight }}
