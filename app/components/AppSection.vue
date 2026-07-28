@@ -1,7 +1,7 @@
 <template>
   <section
     :aria-labelledby="headingId"
-    class="flex flex-col gap-3 pb-8"
+    class="flex flex-col gap-2 pb-8"
   >
     <div class="flex flex-row items-center gap-4">
       <h2

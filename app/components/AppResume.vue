@@ -11,6 +11,7 @@
       :links="data.links"
     />
     <AppSummary :summary="data.summary" />
+    <AppExperience :experience="data.experience" />
   </article>
 </template>
 
