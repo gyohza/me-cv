@@ -13,6 +13,7 @@
     <AppSummary :summary="data.summary" />
     <AppExperience :experience="data.experience" />
     <AppEducation :education="data.education" />
+    <AppSkills :skill-categories="data.skillCategories" />
   </article>
 </template>
 
