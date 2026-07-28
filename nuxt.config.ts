@@ -1,4 +1,5 @@
 import type { CvConfig } from './app/shared/types/config';
+import { toI18nLocales } from './app/shared/cv/locale';
 import { toAccentStyle } from './app/shared/cv/accent';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -21,6 +22,9 @@ const fetchConfig = async (): Promise<CvConfig> => {
 
 const config = await fetchConfig();
 
+const locales = toI18nLocales(config);
+const defaultLocale = locales[0].code;
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -41,6 +45,12 @@ export default defineNuxtConfig({
     public: {
       config,
     },
+  },
+
+  i18n: {
+    locales,
+    defaultLocale,
+    strategy: 'prefix_except_default',
   },
 
   vite: {
