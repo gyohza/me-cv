@@ -1,4 +1,5 @@
 import type { CvConfig } from './app/shared/types/config';
+import { toAccentStyle } from './app/shared/cv/accent';
 import tailwindcss from '@tailwindcss/vite';
 
 const fetchConfig = async (): Promise<CvConfig> => {
@@ -19,15 +20,6 @@ const fetchConfig = async (): Promise<CvConfig> => {
 };
 
 const config = await fetchConfig();
-
-const isHexColor = (value?: string): value is string =>
-  !!value && /^#[0-9a-f]{3,8}$/i.test(value);
-
-const resolveAccentColor = (value?: string) =>
-  isHexColor(value) ? value : 'var(--color-content)';
-
-const accentColor = resolveAccentColor(config.ui?.accentColor);
-const accentColorDark = resolveAccentColor(config.ui?.accentColorDark);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -58,7 +50,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        style: `--config-accent: light-dark(${accentColor}, ${accentColorDark});`,
+        style: toAccentStyle(config.ui),
       },
     },
   },
