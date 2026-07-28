@@ -19,6 +19,7 @@ export interface CvExperience {
 
 export interface CvEducation {
   institution: string;
+  location: string;
   title: string;
   graduatedIn: string;
   highlights?: string[];
