@@ -8,3 +8,6 @@ export const resolveAccentColor = (value?: string) =>
 
 export const toAccentStyle = (ui?: CvUiConfig) =>
   `--config-accent: light-dark(${resolveAccentColor(ui?.accentColor)}, ${resolveAccentColor(ui?.accentColorDark)});`;
+
+export const toOgAccentColor = (ui?: CvUiConfig): string | undefined =>
+  ui?.accentColorDark && HEX_COLOR.test(ui.accentColorDark) ? ui.accentColorDark : undefined;

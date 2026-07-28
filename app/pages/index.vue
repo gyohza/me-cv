@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+import { toOgAccentColor } from '~/shared/cv/accent';
 import { resolveLocaleData } from '~/shared/cv/locale';
 import { buildSeo } from '~/shared/cv/seo';
 import type { CvConfig } from '~/shared/types/config';
@@ -33,5 +34,11 @@ useSeoMeta({
   ogDescription: () => seo.value.description,
   ogType: 'profile',
   twitterCard: 'summary_large_image',
+});
+
+defineOgImageComponent('Resume', {
+  name: computed(() => `${data.value?.firstName ?? ''} ${data.value?.lastName ?? ''}`.trim()),
+  title: computed(() => data.value?.title ?? ''),
+  accent: toOgAccentColor(config.ui),
 });
 </script>

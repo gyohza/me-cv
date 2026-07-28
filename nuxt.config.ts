@@ -56,6 +56,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxt/fonts',
+    'nuxt-og-image',
   ],
   css: ['assets/css/main.css'],
 
