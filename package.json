@@ -35,7 +35,6 @@
   "devDependencies": {
     "@iconify-json/ph": "1.2.2",
     "@nuxt/test-utils": "4.0.3",
-    "@tailwindcss/typography": "0.5.20",
     "@types/node": "26.1.1",
     "@vue/test-utils": "2.4.11",
     "axe-core": "4.12.1",
