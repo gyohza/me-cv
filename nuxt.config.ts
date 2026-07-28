@@ -1,5 +1,6 @@
 import type { CvConfig } from './app/shared/types/config';
-import { toI18nLocales } from './app/shared/cv/locale';
+import { resolveLocaleData, toI18nLocales } from './app/shared/cv/locale';
+import { buildSeo } from './app/shared/cv/seo';
 import { toAccentStyle } from './app/shared/cv/accent';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -20,10 +21,27 @@ const fetchConfig = async (): Promise<CvConfig> => {
   }
 };
 
+const resolveSiteUrl = () => {
+  const url = process.env.NUXT_PUBLIC_SITE_URL;
+
+  if (!url) {
+    console.warn(
+      'NUXT_PUBLIC_SITE_URL not set: robots.txt, the sitemap and og:image will be built '
+      + 'against a placeholder origin and must not be deployed',
+    );
+  }
+
+  return url;
+};
+
 const config = await fetchConfig();
+const siteUrl = resolveSiteUrl();
 
 const locales = toI18nLocales(config);
 const defaultLocale = locales[0].code;
+const { title: siteName, description: siteDescription } = buildSeo(
+  resolveLocaleData(config, defaultLocale),
+);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -47,10 +65,21 @@ export default defineNuxtConfig({
     },
   },
 
+  site: {
+    url: siteUrl,
+    name: siteName,
+    description: siteDescription,
+  },
+
   i18n: {
     locales,
     defaultLocale,
     strategy: 'prefix_except_default',
+    baseUrl: siteUrl,
+  },
+
+  robots: {
+    allow: '/',
   },
 
   vite: {
