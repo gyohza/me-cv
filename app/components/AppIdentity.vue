@@ -2,7 +2,7 @@
   <div class="w-fit">
     <h1
       itemprop="name"
-      class="text-8xl font-display lowercase leading-14"
+      class="text-8xl font-display lowercase leading-14 [word-spacing:-1rem]"
     >
       {{ firstName }}
       <span class="text-accent">{{ lastName }}</span>
