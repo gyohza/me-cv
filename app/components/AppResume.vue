@@ -12,6 +12,7 @@
     />
     <AppSummary :summary="data.summary" />
     <AppExperience :experience="data.experience" />
+    <AppEducation :education="data.education" />
   </article>
 </template>
 

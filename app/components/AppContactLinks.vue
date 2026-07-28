@@ -16,7 +16,7 @@
           :name="link.icon ?? 'ph:dot-fill'"
           size="1.125rem"
           class="text-accent"
-          aria-hidden="true"
+          aria-hidden
         />
         <a
           :href="link.url"

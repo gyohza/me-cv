@@ -10,8 +10,8 @@
     >
       <Icon
         name="ph:seal-check-fill"
-        size="1rem"
-        class="inline-block text-accent shrink-0"
+        size=".75rem"
+        class="inline-block text-accent shrink-0 mt-1"
         aria-hidden
       />
       {{ highlight }}

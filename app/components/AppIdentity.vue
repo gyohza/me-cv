@@ -2,7 +2,7 @@
   <div class="w-fit">
     <h1
       itemprop="name"
-      class="text-8xl font-display lowercase leading-14 print:normal-case print:leading-tight"
+      class="text-8xl font-display lowercase leading-14"
     >
       {{ firstName }}
       <span class="text-accent">{{ lastName }}</span>
@@ -10,7 +10,7 @@
     <p
       role="doc-subtitle"
       itemprop="jobTitle"
-      class="inline-block w-full pt-3 px-1 text-sm font-medium uppercase text-label [text-align-last:justify] [text-justify:inter-character] print:normal-case print:[text-align-last:auto] print:[text-justify:auto]"
+      class="inline-block w-full pt-3 px-1 text-sm font-medium uppercase text-label [text-align-last:justify] [text-justify:inter-character]"
     >
       {{ title }}
     </p>
