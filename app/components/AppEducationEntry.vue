@@ -11,7 +11,7 @@
       </h3>
       <p class="text-md text-label flex items-center gap-1.5">
         <span>{{ entry.location }}</span>
-        <Icon name="ph:dot-outline-fill" class="text-accent" />
+        <span class="text-accent">•</span>
         <span>Graduated</span>
         <time>{{ entry.graduatedIn }}</time>
       </p>
