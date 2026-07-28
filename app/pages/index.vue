@@ -1,20 +1,22 @@
 <template>
-  <div class="bg-surface min-h-dvh w-5xl py-16 px-10 container m-auto">
-    <AppHeader
-      :first-name="data?.firstName ?? ''"
-      :last-name="data?.lastName ?? ''"
-      :title="data?.title ?? ''"
-      :links="data?.links ?? []"
-    />
-  </div>
+  <AppResume
+    v-if="data"
+    :data="data"
+  />
+  <p
+    v-else
+    role="status"
+  >
+    Resume data is unavailable right now.
+  </p>
 </template>
 
 <script lang="ts" setup>
+import { resolveLocaleData } from '~/shared/cv/locale';
 import type { CvConfig } from '~/shared/types/config';
 
-const { locale } = useI18n()
+const { locale } = useI18n();
 const config = useRuntimeConfig().public.config as unknown as CvConfig;
 
-const data = computed(() => config.data[locale.value]);
-
+const data = computed(() => resolveLocaleData(config, locale.value));
 </script>
