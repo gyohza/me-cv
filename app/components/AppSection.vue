@@ -1,16 +1,13 @@
 <template>
-  <section
-    :aria-labelledby="headingId"
-    class="flex flex-col gap-2 pb-8"
-  >
+  <section :aria-labelledby="headingId" class="flex flex-col gap-1 pb-6">
     <div class="flex flex-row items-center gap-4">
       <h2
         :id="headingId"
-        class="text-4xl text-accent font-display lowercase tracking-widest brightness-95"
+        class="text-3xl text-accent font-display lowercase tracking-widest brightness-95"
       >
         {{ title }}
       </h2>
-      <hr class="inline-block border-b-2 border-accent/50 w-full -mb-1">
+      <hr class="inline-block border-b border-accent/60 w-full -mb-1">
     </div>
     <slot />
   </section>
