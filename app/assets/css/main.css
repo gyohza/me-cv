@@ -25,7 +25,8 @@ html {
 a {
   @apply text-content underline decoration-accent/50 decoration-2
     underline-offset-2 transition-colors text-shadow-content/5
-    hover:text-accent hover:text-shadow-md hover:brightness-75;
+    hover:text-accent hover:text-shadow-md hover:brightness-75
+    rounded-md overflow-hidden;
 }
 
 .iconify {

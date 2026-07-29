@@ -7,7 +7,9 @@
       >
         {{ title }}
       </h2>
-      <hr class="inline-block border-b border-accent/60 w-full -mb-1">
+      <hr
+        class="inline-block border-t-2 border-accent/60 w-full -mb-1 rounded-full overflow-hidden"
+      />
     </div>
     <slot />
   </section>
