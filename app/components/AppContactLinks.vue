@@ -1,12 +1,6 @@
 <template>
-  <section
-    v-if="links.length"
-    data-nosnippet
-    class="py-2"
-  >
-    <ul
-      class="grid grid-cols-2 gap-x-4 gap-y-1.5"
-    >
+  <section v-if="links.length" data-nosnippet class="py-2">
+    <ul class="grid grid-cols-2 gap-x-4 gap-y-1.5">
       <li
         v-for="link in links"
         :key="link.url"
@@ -18,13 +12,8 @@
           class="text-accent"
           aria-hidden
         />
-        <a
-          :href="link.url"
-          class="tracking-wider"
-        >
-          <strong class="sr-only">
-            {{ link.label }}:
-          </strong>
+        <a :href="link.url" class="tracking-wider">
+          <strong class="sr-only"> {{ link.label }}: </strong>
           {{ link.value }}
         </a>
       </li>

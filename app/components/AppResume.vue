@@ -1,9 +1,5 @@
 <template>
-  <article
-    itemscope
-    itemtype="https://schema.org/Person"
-    class="flex flex-col"
-  >
+  <article itemscope itemtype="https://schema.org/Person" class="flex flex-col">
     <AppHeader
       :first-name="data.firstName"
       :last-name="data.lastName"

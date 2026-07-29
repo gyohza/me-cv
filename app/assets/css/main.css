@@ -1,10 +1,10 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* https://coolors.co/5c9ead-fffffa-4a525a-24272b */
 
 @theme {
-  --font-display: "Genos", sans-serif;
-  --font-sans: "Fira Sans", sans-serif;
+  --font-display: 'Genos', sans-serif;
+  --font-sans: 'Fira Sans', sans-serif;
 
   /* suppress default palette */
   --color-*: initial;
@@ -25,7 +25,11 @@ html {
 a {
   @apply text-content underline decoration-accent/50 decoration-2
     underline-offset-2 transition-colors text-shadow-content/5
-    hover:text-accent hover:text-shadow-md;
+    hover:text-accent hover:text-shadow-md hover:brightness-75;
+}
+
+.iconify {
+  @apply outline;
 }
 
 :focus-visible {
@@ -35,28 +39,37 @@ a {
 @media print {
   @page {
     size: A4;
-    margin: 12mm 14mm;
+  }
+
+  body {
+    padding: 5rem 3.5rem;
+    box-decoration-break: clone;
   }
 
   :root {
     color-scheme: light;
   }
 
-  html, body {
+  html,
+  body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    font-size: 10.5pt;
+    font-size: 9pt;
   }
 
   a {
     @apply no-underline;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     break-after: avoid;
   }
 
-  p, li {
+  p,
+  li {
     orphans: 2;
     widows: 2;
   }

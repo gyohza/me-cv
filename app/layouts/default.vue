@@ -9,7 +9,7 @@
     <main
       id="main-content"
       tabindex="-1"
-      class="container m-auto max-w-5xl bg-surface px-10 py-16 print:max-w-none"
+      class="container m-auto max-w-5xl bg-surface px-14 py-20 print:max-w-none print:p-0!"
     >
       <slot />
     </main>
