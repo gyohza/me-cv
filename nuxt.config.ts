@@ -1,5 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
 import { toAccentStyle } from './app/shared/cv/accent';
+import { toFaviconDataUri } from './app/shared/cv/favicon';
 import { resolveLocaleData, toI18nLocales } from './app/shared/cv/locale';
 import { buildSeo } from './app/shared/cv/seo';
 import type { CvConfig } from './app/shared/types/config';
@@ -40,9 +41,9 @@ const siteUrl = resolveSiteUrl();
 
 const locales = toI18nLocales(config);
 const defaultLocale = locales[0].code;
-const { title: siteName, description: siteDescription } = buildSeo(
-  resolveLocaleData(config, defaultLocale),
-);
+const localeData = resolveLocaleData(config, defaultLocale);
+const { title: siteName, description: siteDescription } = buildSeo(localeData);
+const faviconHref = localeData ? toFaviconDataUri(localeData, config.ui) : undefined;
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -97,6 +98,9 @@ export default defineNuxtConfig({
       htmlAttrs: {
         style: toAccentStyle(config.ui),
       },
+      link: faviconHref
+        ? [{ rel: 'icon', type: 'image/svg+xml', href: faviconHref }]
+        : [],
     },
   },
 });
