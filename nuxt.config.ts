@@ -1,24 +1,25 @@
-import type { CvConfig } from './app/shared/types/config';
+import tailwindcss from '@tailwindcss/vite';
+import { toAccentStyle } from './app/shared/cv/accent';
 import { resolveLocaleData, toI18nLocales } from './app/shared/cv/locale';
 import { buildSeo } from './app/shared/cv/seo';
-import { toAccentStyle } from './app/shared/cv/accent';
-import tailwindcss from '@tailwindcss/vite';
+import type { CvConfig } from './app/shared/types/config';
 
 const fetchConfig = async (): Promise<CvConfig> => {
   const url = process.env.NUXT_CONFIG_URL;
 
   if (!url) {
-    console.warn('NUXT_CONFIG_URL not set');
-    return { data: {} };
+    throw new Error('NUXT_CONFIG_URL not set');
   }
 
-  try {
-    const response = await fetch(url);
-    return await response.json();
-  } catch (error) {
-    console.error('failed to fetch config', error);
-    return { data: {} };
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(
+      `failed to fetch config: ${response.status} ${response.statusText}`,
+    );
   }
+
+  return await response.json();
 };
 
 const resolveSiteUrl = () => {
@@ -26,8 +27,8 @@ const resolveSiteUrl = () => {
 
   if (!url) {
     console.warn(
-      'NUXT_PUBLIC_SITE_URL not set: robots.txt, the sitemap and og:image will be built '
-      + 'against a placeholder origin and must not be deployed',
+      'NUXT_PUBLIC_SITE_URL not set: robots.txt, the sitemap and og:image will be built ' +
+        'against a placeholder origin and must not be deployed',
     );
   }
 
@@ -59,6 +60,10 @@ export default defineNuxtConfig({
     'nuxt-og-image',
   ],
   css: ['assets/css/main.css'],
+
+  nitro: {
+    preset: 'github-pages',
+  },
 
   runtimeConfig: {
     public: {
